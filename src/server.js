@@ -1,5 +1,6 @@
 import express, { json } from 'express';
 import dotenv from "dotenv";
+import morgan from 'morgan';
 import IndexRoutes from "./routes/index.routes";
 import TaskRoutes from "./routes/task.routes";
 
@@ -15,6 +16,7 @@ app.set('port', process.env.PORT || 3000);
 
 // Middleware
 app.use(json());
+app.use(morgan('dev'));
 
 // Routes
 app.use(IndexRoutes);
